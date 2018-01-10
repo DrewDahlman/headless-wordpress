@@ -34,7 +34,7 @@ The first thing is that this is using Docker as a base the example wordpress ins
 The install of Wordpress that we have is stripped down to only the essentials wich is just the admin and some base utils in a theme called `headless`. I've also removed all outbound scripts so there are no comments, no trackbacks, no signup, none of that - just the admin and a base theme.
 
 In the plugins we have 4 plugins.
-- ACF ( [Advanced Custom Fields](https://www.advancedcustomfields.com/) )
+- ACF Pro ( [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) )
 	- If you haven't used this, start. It will change wordpress dev forever.
 - CPT ( [Custom Post Types](https://wordpress.org/plugins/custom-post-type-ui/) )
 	- Another powerful tool in created custom post types and taxonomies.
