@@ -232,7 +232,7 @@ if( !class_exists("wpheadless") ){
 			// Create the options page for ACF
 			acf_add_options_page(array(
 				"page_title" 	=> "Publish Settings",
-				"menu_title"	=> "Settings",
+				"menu_title"	=> "Content",
 				"menu_slug" 	=> "publish-settings",
 				"capability"	=> "edit_posts",
 				"parent"			=> "publish-site",
