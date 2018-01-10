@@ -76,32 +76,32 @@ if( !class_exists("wpheadless") ){
 				foreach( $content["content"] as $post ){
 					array_push( $file_content, $this->parsePost( $post, array() ));
 				}
-			}
 
-			// Ensure temp directory exists
-			if( !file_exists( $this->settings["tmp_dir"] )){
-				mkdir( $this->settings["tmp_dir"] );
-			}
+				// Ensure temp directory exists
+				if( !file_exists( $this->settings["tmp_dir"] )){
+					mkdir( $this->settings["tmp_dir"] );
+				}
 
-			// Write the temp file
-			$fp = fopen( $file_path, "w");
-			fwrite($fp, json_encode($file_content));
-			fclose($fp);
+				// Write the temp file
+				$fp = fopen( $file_path, "w");
+				fwrite($fp, json_encode($file_content));
+				fclose($fp);
 
-			// Create the uploader
-			$this->uploader = new Uploader($file_name, $file_path, $this->settings["dest"] );
+				// Create the uploader
+				$this->uploader = new Uploader($file_name, $file_path, $this->settings["dest"] );
 
-			// Upload
-			if( $this->uploader->upload() ){
+				// Upload
+				if( $this->uploader->upload() ){
 
-				// Success
-				include("views/success.php");
+					// Success
+					include("views/success.php");
 
-				// Remove temp files
-				unlink($file_path);
-				rmdir($this->settings["tmp_dir"]);
-			} else {
-				include("views/error.php");
+					// Remove temp files
+					unlink($file_path);
+					rmdir($this->settings["tmp_dir"]);
+				} else {
+					include("views/error.php");
+				}
 			}
 		}
 

@@ -2,11 +2,11 @@
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array (
-	'key' => 'group_5a5665219203a',
+	'key' => 'group_5a566a8990b00',
 	'title' => 'Content',
 	'fields' => array (
 		array (
-			'key' => 'field_5a5665256b64e',
+			'key' => 'field_5a566ad0e0169',
 			'label' => 'Destination',
 			'name' => 'destination',
 			'type' => 'text',
@@ -25,7 +25,7 @@ acf_add_local_field_group(array (
 			'maxlength' => '',
 		),
 		array (
-			'key' => 'field_5a5665476b64f',
+			'key' => 'field_5a566ae5e016a',
 			'label' => 'Content',
 			'name' => 'content',
 			'type' => 'repeater',
@@ -38,13 +38,13 @@ acf_add_local_field_group(array (
 				'id' => '',
 			),
 			'collapsed' => '',
-			'min' => 0,
+			'min' => 1,
 			'max' => 0,
 			'layout' => 'block',
-			'button_label' => 'Add Content',
+			'button_label' => '',
 			'sub_fields' => array (
 				array (
-					'key' => 'field_5a5665506b650',
+					'key' => 'field_5a566aede016b',
 					'label' => 'File Name',
 					'name' => 'file_name',
 					'type' => 'text',
@@ -63,11 +63,11 @@ acf_add_local_field_group(array (
 					'maxlength' => '',
 				),
 				array (
-					'key' => 'field_5a5665616b651',
+					'key' => 'field_5a566b0ee016c',
 					'label' => 'Content',
 					'name' => 'content',
 					'type' => 'relationship',
-					'instructions' => 'Search through your content and select what content you want in your file.',
+					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array (
@@ -77,9 +77,11 @@ acf_add_local_field_group(array (
 					),
 					'post_type' => array (
 					),
+					'taxonomy' => array (
+					),
 					'filters' => array (
 						0 => 'search',
-						1 => 'post_type'
+						1 => 'post_type',
 					),
 					'elements' => '',
 					'min' => '',
