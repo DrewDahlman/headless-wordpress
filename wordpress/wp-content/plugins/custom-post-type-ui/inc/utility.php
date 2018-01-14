@@ -591,8 +591,7 @@ function cptui_import_success_admin_notice() {
  */
 function cptui_import_fail_admin_notice() {
 	echo cptui_admin_notices_helper(
-		esc_html__( 'Invalid data provided', 'custom-post-type-ui' ),
-		false
+		esc_html__( 'Invalid data provided', 'custom-post-type-ui' )
 	);
 }
 

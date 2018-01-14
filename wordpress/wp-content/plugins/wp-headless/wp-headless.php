@@ -135,12 +135,12 @@ if( !class_exists("wpheadless") ){
 			// Setup the post content holder
 			$content = array();
 
-			// Essentials
+			// Essentials and base wordpress details
 			foreach( $post as $post_field_key => $post_field_value ){
 				$content[$post_field_key] = $post_field_value;
 			}
 
-			// Loop fields
+			// Loop custom fields
 			if( get_fields( $post->ID ) ){
 				foreach( get_fields($post->ID) as $post_custom_field_key => $post_custom_field_value ){
 
@@ -210,7 +210,7 @@ if( !class_exists("wpheadless") ){
 
 		// Loop deps and error if required
 		foreach( $dependencies as $dependency ){
-			if( !is_plugin_active( $dependency["file"]) ){
+			if( !is_plugin_active( $dependency["file"] ) ){
 				if( $dependency['required'] ){
 					$class = "notice notice-error";
 					$message = "WP Headless requires " . $dependency["name"] . " <a href='" . $dependency["link"] . "'>Click to download</a>";
@@ -246,9 +246,6 @@ if( !class_exists("wpheadless") ){
 
 			// Create publish production
 			add_submenu_page('publish-site', 'Publish Production', 'Publish Production', 'edit_others_posts', 'publish-production', 'publish_production', 2);
-
-			// Check and create required fields
-			require("lib/settings-fields.php");
 		}
 
 		/*
@@ -282,9 +279,22 @@ if( !class_exists("wpheadless") ){
 			$headless->publish();
 		}
 
+		
+
+	}
+
+	/*
+	------------------------------------------
+	| loadFields:void (-)
+	|
+	| Load the settings fields
+	------------------------------------------ */
+	function loadFields(){
+		require("lib/settings-fields.php");
 	}
 
 	add_action('admin_menu', 'init');	
+	add_action('wp_loaded', 'loadFields');
 }
 
 ?>

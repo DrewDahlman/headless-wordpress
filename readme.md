@@ -9,7 +9,7 @@ In order to run these code examples you will need the following:
 	- [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
 
 ## Running
-- `cd Wordpress`
+- `cd wordpress`
 - `docker-compose up`
 - `localhost:8000/wp-admin`
 	- user: `root`
@@ -40,8 +40,14 @@ In the plugins we have 4 plugins.
 	- Another powerful tool in created custom post types and taxonomies.
 - AWS ( [Amazon Web Services](https://wordpress.org/plugins/amazon-web-services/) )
 - WP Offload ( [Wordpress Offload Lite](https://wordpress.org/plugins/amazon-s3-and-cloudfront/) )
+- WP Headless ( [WP Headless](https://github.com/DrewDahlman/wp-headless) )
+	- Plugin for this project, we will cover this later.
 
-These plugins are the foundation to what we will be building. With these we will customize our wordpress install with some custom post types and fields and create a number of ways to upload to s3.
+These plugins are the foundation to what we will be building. With these we will customize our wordpress install with some custom post types, fields and upload to s3 for consuming in your app / project.
 
-We also have in our `headless` theme a `utils` directory and functions. Nothing else here.
+Note that for this example I have created a plugin with these as dependencies but that you could roll your own version of something like this and we will cover that.
+
+Check out the [Medium Post To Learn More](https://medium.com/@meuspartum/off-with-their-heads-building-a-headless-wordpress-to-manage-content-bb04e6b2a792)
+
+
 
