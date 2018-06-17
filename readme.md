@@ -11,7 +11,7 @@ In order to run these code examples you will need the following:
 ## Running
 - `cd wordpress`
 - `docker-compose up`
-- `localhost:8000/wp-admin`
+- `localhost:8080/wp-admin`
 	- user: `root`
 	- pass: `root`
 - Party
