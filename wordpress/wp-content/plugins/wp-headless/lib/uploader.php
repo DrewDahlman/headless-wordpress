@@ -8,13 +8,21 @@
 
 		public function __construct( $file_name, $tmp_file, $dest ){
 			$this->settings["bucket"] = get_site_option("tantan_wordpress_s3")["bucket"];
-
+			
 			$this->settings["awsAccessKey"] = get_site_option(Amazon_Web_Services::SETTINGS_KEY)["access_key_id"];
 			$this->settings["awsSecretKey"] = get_site_option(Amazon_Web_Services::SETTINGS_KEY)["secret_access_key"];
 			
 			$this->settings["tmp_file"] = $tmp_file;
 			$this->settings["file_name"] = $dest . $file_name;
 			$this->settings["file_url"] = "http://". $this->settings["bucket"] . ".s3.amazonaws.com/" . $this->settings["file_name"];
+		}
+
+		function canUpload(){
+			if( $this->settings["awsAccessKey"] != "" ){
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		function upload(){

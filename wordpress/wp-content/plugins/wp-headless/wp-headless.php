@@ -43,7 +43,7 @@ if( !class_exists("wpheadless") ){
 				"link"				=> "https://github.com/DrewDahlman/wp-headless",
 				"files"				=> array(),
 				"env"					=> $env,
-				"tmp_dir"			=> get_template_directory() . "/" . $this->generateRandomString() . "/",
+				"tmp_dir"			=> get_template_directory() . "/data" . "/",
 				"content"			=> get_field("content", "options"),
 				"dest"				=> get_field("destination", "options") == "" ? "wp-headless-data/" : get_field("destination", "options")
 			);
@@ -91,16 +91,21 @@ if( !class_exists("wpheadless") ){
 				$this->uploader = new Uploader($file_name, $file_path, $this->settings["dest"] );
 
 				// Upload
-				if( $this->uploader->upload() ){
+				if( $this->uploader->canUpload() ){
+					if( $this->uploader->upload() ){
 
-					// Success
-					include("views/success.php");
+						// Success
+						include("views/success.php");
 
-					// Remove temp files
-					unlink($file_path);
-					rmdir($this->settings["tmp_dir"]);
+						// Remove temp files
+						unlink($file_path);
+						rmdir($this->settings["tmp_dir"]);
+					} else {
+						include("views/error.php");
+					}
 				} else {
-					include("views/error.php");
+					$local_path = get_template_directory_uri() . "/data" . "/" . $file_name;
+					include("views/success-local.php");
 				}
 			}
 		}
